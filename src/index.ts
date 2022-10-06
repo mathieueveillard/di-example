@@ -1,4 +1,7 @@
-import { random } from "./index.spec";
+type RandomGenerator = () => number;
 
-// Usage in production
+export const random = (min: number, max: number, generator: RandomGenerator): number => {
+  return min + (max - min) * generator();
+};
+
 const n = random(1, 10, Math.random);
